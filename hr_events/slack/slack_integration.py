@@ -4,6 +4,7 @@ import frappe
 from hr_events.helpers.error import SlackIntegrationError
 from slack_bolt import App
 
+
 class SlackIntegration:
 	"""Handles communication with Slack using stored HR Event Settings."""
 
@@ -15,19 +16,19 @@ class SlackIntegration:
 
 	def _get_settings(self):
 		"""Fetch Slack configuration from HR Event Settings Doctype securely."""
-		settings = frappe.db.get_singles_dict("HR Event Settings")
+		
+		# Use frappe.get_single to get the Document object, not a dict
+		settings_doc = frappe.get_single("HR Event Settings")
 
-		if not settings:
+		if not settings_doc:
 			raise SlackIntegrationError("HR Event Settings not found.")
 
-		# 🔒 Securely fetch decrypted Slack bot token
-		bot_token = frappe.utils.password.get_decrypted_password(
-			"HR Event Settings", "HR Event Settings", "slack_bot_token"
-		)
+		# 🔒 Use the .get_password() method on the document object
+		bot_token = settings_doc.get_password("slack_bot_token")
 
 		return {
 			"bot_token": bot_token,
-			"default_channel": settings.get("slack_channel"), # Name updated from your JSON
+			"default_channel": settings_doc.slack_channel,
 		}
 
 	def send_dm(self, user_id: str, message: str):
