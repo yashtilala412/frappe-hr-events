@@ -27,14 +27,16 @@ def sync_slack_users_job():
 	"""
 	try:
 		slack = SlackIntegration()
-		frappe.log_info("Starting Slack user sync...", title="HR Events")
+		# Use frappe.log() without the 'title' argument
+		frappe.log("HR Events: Starting Slack user sync...")
 		slack_users_map = slack.get_slack_users_by_email()
-		frappe.log_info(
-			f"Found {len(slack_users_map)} users in Slack.", title="HR Events"
+		frappe.log(
+			f"HR Events: Found {len(slack_users_map)} users in Slack."
 		)
 
 		if not slack_users_map:
-			frappe.log_warning("No users found in Slack.", title="HR Events")
+			# Use frappe.log() without the 'title' argument
+			frappe.log("HR Events: No users found in Slack.")
 			return
 
 		# Get all active Frappe employees and their user_id (which is the email)
@@ -61,8 +63,8 @@ def sync_slack_users_job():
 				)
 				synced_count += 1
 
-		frappe.log_info(
-			f"Successfully synced {synced_count} users.", title="HR Events"
+		frappe.log(
+			f"HR Events: Successfully synced {synced_count} users."
 		)
 
 	except SlackIntegrationError as e:

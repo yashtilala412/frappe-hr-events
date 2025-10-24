@@ -148,23 +148,11 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"hr_events.tasks.all"
-# 	],
-# 	"daily": [
-# 		"hr_events.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"hr_events.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"hr_events.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"hr_events.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": [
+		"hr_events.tasks.daily_events.send_event_reminders"
+	]
+}
 
 # Testing
 # -------
