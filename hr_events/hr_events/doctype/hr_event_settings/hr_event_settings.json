@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-23 17:55:24.506055",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "slack_bot_token",
+  "slack_channel",
+  "daily_reminder_time",
+  "enable_daily_summary",
+  "event_types"
+ ],
+ "fields": [
+  {
+   "fieldname": "slack_bot_token",
+   "fieldtype": "Password",
+   "label": "Slack Bot Token"
+  },
+  {
+   "fieldname": "slack_channel",
+   "fieldtype": "Data",
+   "label": "Slack Channel"
+  },
+  {
+   "fieldname": "daily_reminder_time",
+   "fieldtype": "Time",
+   "label": "Daily Reminder Time"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_daily_summary",
+   "fieldtype": "Check",
+   "label": "Enable Daily Summary"
+  },
+  {
+   "fieldname": "event_types",
+   "fieldtype": "Table",
+   "label": "Event Types",
+   "options": "Event Type"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-10-23 18:02:28.306461",
+ "modified_by": "Administrator",
+ "module": "hr_events",
+ "name": "HR Event Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
