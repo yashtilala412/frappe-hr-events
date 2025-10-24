@@ -28,7 +28,7 @@ Before you begin, make sure you have the following apps installed on your Frappe
     ```
 3.  Install this app:
     ```bash
-    bench get-app [https://github.com/](https://github.com/)[your-github-username]/hr_events
+    bench get-app [https://github.com/](https://github.com/)[yashtilala412]/hr_events
     bench --site [your-site-name] install-app hr_events
     bench migrate
     bench restart
