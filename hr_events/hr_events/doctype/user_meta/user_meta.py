@@ -9,6 +9,24 @@ class UserMeta(Document):
 	pass
 
 
+def update_user_meta(user_email: str, data: dict):
+	"""
+	Create or update the User Meta document for a given user email.
+	"""
+	if not user_email:
+		return
+
+	if frappe.db.exists("User Meta", {"user": user_email}):
+		doc = frappe.get_doc("User Meta", {"user": user_email})
+	else:
+		doc = frappe.new_doc("User Meta")
+		doc.user = user_email
+
+	doc.update(data)
+	doc.save(ignore_permissions=True)
+	return doc
+
+
 @frappe.whitelist()
 def get_slack_user_id(frappe_user_email: str) -> str | None:
 	"""
