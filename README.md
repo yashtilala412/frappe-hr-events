@@ -63,10 +63,4 @@ Before you begin, make sure you have the following apps installed on your Frappe
 5.  **You're Done!**
     -   The app will now run a check every day. If it finds an employee with a birthday or work anniversary, it will automatically send them a celebratory DM!
 
-## 🤝 Contributing
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
-
-```bash
-cd apps/hr_events
-pre-commit install
