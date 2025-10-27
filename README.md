@@ -16,7 +16,7 @@ A Frappe HR app to manage employee events. Automatically sends direct messages o
 
 Before you begin, make sure you have the following apps installed on your Frappe site:
 
-1.  **Frappe HRMS (hrms)**: This app is required for the `Employee` doctype.
+1.  **Frappe HRMS (hrms)**: This app is required. 
 
 ## 🚀 Installation
 
